@@ -1,0 +1,282 @@
+{"frames": {
+
+"cloud_01.png":
+{
+	"frame": {"x":1826,"y":667,"w":90,"h":45},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":45},
+	"sourceSize": {"w":90,"h":45}
+},
+"cloud_02.png":
+{
+	"frame": {"x":1828,"y":1,"w":196,"h":89},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":196,"h":89},
+	"sourceSize": {"w":196,"h":89}
+},
+"cloud_03.png":
+{
+	"frame": {"x":1154,"y":89,"w":118,"h":72},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":118,"h":72},
+	"sourceSize": {"w":118,"h":72}
+},
+"cloud_04.png":
+{
+	"frame": {"x":1643,"y":554,"w":191,"h":93},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":191,"h":93},
+	"sourceSize": {"w":191,"h":93}
+},
+"end_bg.png":
+{
+	"frame": {"x":1234,"y":89,"w":668,"h":407},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":407},
+	"sourceSize": {"w":668,"h":407}
+},
+"feather_1.png":
+{
+	"frame": {"x":1154,"y":416,"w":16,"h":17},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":17},
+	"sourceSize": {"w":16,"h":17}
+},
+"feather_2.png":
+{
+	"frame": {"x":1608,"y":1,"w":18,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":18,"h":16},
+	"sourceSize": {"w":18,"h":16}
+},
+"feather_3.png":
+{
+	"frame": {"x":2014,"y":92,"w":11,"h":8},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":11,"h":8},
+	"sourceSize": {"w":11,"h":8}
+},
+"feather_4.png":
+{
+	"frame": {"x":1735,"y":522,"w":8,"h":9},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":8,"h":9},
+	"sourceSize": {"w":8,"h":9}
+},
+"flatchy.png":
+{
+	"frame": {"x":1,"y":679,"w":106,"h":78},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":106,"h":78},
+	"sourceSize": {"w":106,"h":78}
+},
+"flatchy_dead.png":
+{
+	"frame": {"x":1890,"y":648,"w":91,"h":85},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":91,"h":85},
+	"sourceSize": {"w":91,"h":85}
+},
+"flight/flatchy_01.png":
+{
+	"frame": {"x":804,"y":679,"w":89,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":89,"h":72},
+	"sourceSize": {"w":89,"h":72}
+},
+"flight/flatchy_02.png":
+{
+	"frame": {"x":1154,"y":315,"w":99,"h":72},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":72},
+	"sourceSize": {"w":99,"h":72}
+},
+"flight/flatchy_03.png":
+{
+	"frame": {"x":109,"y":679,"w":104,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":72},
+	"sourceSize": {"w":104,"h":72}
+},
+"flight/flatchy_04.png":
+{
+	"frame": {"x":317,"y":679,"w":99,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":72},
+	"sourceSize": {"w":99,"h":72}
+},
+"flight/flatchy_05.png":
+{
+	"frame": {"x":519,"y":679,"w":95,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":95,"h":72},
+	"sourceSize": {"w":95,"h":72}
+},
+"flight/flatchy_06.png":
+{
+	"frame": {"x":895,"y":679,"w":89,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":89,"h":72},
+	"sourceSize": {"w":89,"h":72}
+},
+"flight/flatchy_07.png":
+{
+	"frame": {"x":711,"y":679,"w":91,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":91,"h":72},
+	"sourceSize": {"w":91,"h":72}
+},
+"flight/flatchy_08.png":
+{
+	"frame": {"x":215,"y":679,"w":100,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":72},
+	"sourceSize": {"w":100,"h":72}
+},
+"flight/flatchy_09.png":
+{
+	"frame": {"x":1154,"y":209,"w":104,"h":72},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":72},
+	"sourceSize": {"w":104,"h":72}
+},
+"flight/flatchy_10.png":
+{
+	"frame": {"x":418,"y":679,"w":99,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":72},
+	"sourceSize": {"w":99,"h":72}
+},
+"flight/flatchy_11.png":
+{
+	"frame": {"x":616,"y":679,"w":93,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":93,"h":72},
+	"sourceSize": {"w":93,"h":72}
+},
+"flight/flatchy_12.png":
+{
+	"frame": {"x":1738,"y":667,"w":90,"h":86},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":86},
+	"sourceSize": {"w":90,"h":86}
+},
+"game_over_text.png":
+{
+	"frame": {"x":1643,"y":1,"w":551,"h":90},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":551,"h":90},
+	"sourceSize": {"w":551,"h":90}
+},
+"get_ready_text.png":
+{
+	"frame": {"x":1735,"y":1,"w":519,"h":91},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":519,"h":91},
+	"sourceSize": {"w":519,"h":91}
+},
+"ground.png":
+{
+	"frame": {"x":1,"y":1,"w":1605,"h":86},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1605,"h":86},
+	"sourceSize": {"w":1605,"h":86}
+},
+"hills.png":
+{
+	"frame": {"x":1,"y":89,"w":1151,"h":394},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1151,"h":394},
+	"sourceSize": {"w":1151,"h":394}
+},
+"medal_1.png":
+{
+	"frame": {"x":1738,"y":539,"w":150,"h":126},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":13,"y":19,"w":150,"h":126},
+	"sourceSize": {"w":184,"h":174}
+},
+"medal_2.png":
+{
+	"frame": {"x":1828,"y":268,"w":181,"h":156},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":181,"h":156},
+	"sourceSize": {"w":184,"h":174}
+},
+"medal_3.png":
+{
+	"frame": {"x":1828,"y":92,"w":184,"h":174},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":174},
+	"sourceSize": {"w":184,"h":174}
+},
+"new_icon.png":
+{
+	"frame": {"x":1890,"y":539,"w":107,"h":98},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":107,"h":98},
+	"sourceSize": {"w":107,"h":98}
+},
+"tap_text.png":
+{
+	"frame": {"x":1828,"y":426,"w":158,"h":111},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":158,"h":111},
+	"sourceSize": {"w":158,"h":111}
+},
+"tree.png":
+{
+	"frame": {"x":1,"y":485,"w":192,"h":1231},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":1231},
+	"sourceSize": {"w":192,"h":1231}
+}},
+"animations": {
+	"cloud": ["cloud_01.png","cloud_02.png","cloud_03.png","cloud_04.png"],
+	"feather": ["feather_1.png","feather_2.png","feather_3.png","feather_4.png"],
+	"flight/flatchy": ["flight/flatchy_01.png","flight/flatchy_02.png","flight/flatchy_03.png","flight/flatchy_04.png","flight/flatchy_05.png","flight/flatchy_06.png","flight/flatchy_07.png","flight/flatchy_08.png","flight/flatchy_09.png","flight/flatchy_10.png","flight/flatchy_11.png","flight/flatchy_12.png"],
+	"medal": ["medal_1.png","medal_2.png","medal_3.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "game_textures.png",
+	"format": "RGBA8888",
+	"size": {"w":2025,"h":758},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b47e9201d22fe4081bdbd6666624a3ff:ae40911e318e3e7477eba25843d22781:8103a5efdae9e32fc13e660f66ddbd2f$"
+}
+}
