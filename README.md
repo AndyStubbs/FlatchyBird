@@ -1,2 +1,2 @@
 # FlatchyBird
-A flappy birds clone
+A flappy bird clone
