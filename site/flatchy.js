@@ -10,7 +10,11 @@ const g = {
 	"fadeIn": null,
 	"fadeOut": null,
 	"loadGame": null,
-	"startGame": null
+	"startGame": null,
+	"gameTextures": null,
+	"titleTextures": null,
+	"app": null,
+	"bestScore": 12
 };
 
 ( function () {
@@ -21,21 +25,42 @@ const g = {
 			"container": null,
 			"action": null,
 			"direction": null,
-			"isActive": false
-		}
+			"isActive": false,
+			"speed": 0.05,
+		},
+		"blink": null
 	};
 
 	// Wait for the HTML DOM to finish loading
 	window.addEventListener( "DOMContentLoaded", init );
 
+	// Blink function
+	g.blink = function( container ) {
+		flatchy.blink = container;
+		flatchy.blink.alpha = 0;
+		g.app.ticker.add( blink );
+	};
+
+	g.stopBlink = function() {
+		g.app.ticker.remove( blink );
+	};
+
+	function blink() {
+		const f = flatchy.blink;
+		f.alpha = Math.sin( g.app.ticker.lastTime / 250 ) * 0.5 + 0.5;
+	}
+
 	// Fade in function
-	g.fade = function ( container, direction, action ) {
+	g.fade = function ( container, direction, action, speed ) {
 		if( direction === undefined ) {
 			direction = 1;
 		}
 		flatchy.fade.container = container;
 		flatchy.fade.action = action;
 		flatchy.fade.direction = direction;
+		if( speed !== undefined ) {
+			flatchy.fade.speed = speed;
+		}
 		if( flatchy.fade.isActive ) {
 			g.app.ticker.remove( flatchy.fade.ticker );
 		}
@@ -56,7 +81,7 @@ const g = {
 			}
 			return;
 		}
-		f.container.alpha += 0.05 * f.direction * delta;
+		f.container.alpha += f.speed * f.direction * delta;
 	}
 
 	// Initialize the game components
@@ -133,12 +158,13 @@ const g = {
 		flatchy.container.addChild( flatchy.bird );
 
 		// Create the start button
-		flatchy.startButton = new PIXI.Sprite( g.titleTextures.textures[ "btns/start_btn_up.png" ] );
+		flatchy.startButton = new PIXI.Sprite(
+			g.titleTextures.textures[ "btns/start_btn_up.png" ]
+		);
 		flatchy.startButton.anchor.set( 0.5, 0.5 );
 		flatchy.startButton.x = g.app.screen.width / 2;
 		flatchy.startButton.y = g.app.screen.height * 0.80;
-		flatchy.startButton.interactive = true;
-		flatchy.startButton.buttonMode = true;
+		flatchy.startButton.eventMode = "static";
 		flatchy.startButton.on( "pointerdown", startGame );
 		flatchy.startButton.on( "pointerover", function () {
 			flatchy.startButton.tint = "#999999";
@@ -162,8 +188,11 @@ const g = {
 	}
 
 	function startGame() {
+		flatchy.startButton.off( "pointerdown" );
 		g.app.ticker.remove( animateTitle );
-		g.fade( flatchy.container, -1, g.startGame );
+		g.fade( flatchy.container, -1, () => {
+			g.startGame( true );
+		} );
 	}
 
 } )();
