@@ -1,2 +1,2 @@
-# AlienABC
-An educational platform game staring an alien.
+# FlatchyBird
+A flappy birds clone
