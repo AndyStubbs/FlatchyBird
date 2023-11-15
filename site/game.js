@@ -12,11 +12,12 @@
 		"trees": null,
 		"flatchy": null,
 		"feathers": [],
-		"gravity": 0.5,
+		"gravity": 0.75,
+		"baseVelocity": 15,
 		"debug": null,
 		"score": 0,
-		"baseSpeed": 4,
-		"speed": 4,
+		"baseSpeed": 5,
+		"speed": 5,
 		"treeSpeed": 1,
 		"hillSpeed": 0.5,
 		"groundSpeed": 1,
@@ -152,7 +153,7 @@
 			"container": null,
 			"sprite": null,
 			"velocity": 0,
-			"maxVelocity": 10,
+			"maxVelocity": 17,
 			"isDead": false,
 			"deadSprite": null,
 			"isInGap": false
@@ -223,13 +224,11 @@
 		tree.top = new PIXI.Sprite( g.gameTextures.textures[ "tree.png" ] );
 		tree.top.anchor.set( 0.5, 1 );
 		tree.top.x = 0;
-		tree.top.y = g.app.screen.height / 2 - 150;
 		tree.container.addChild( tree.top );
 
 		tree.bottom =  new PIXI.Sprite( g.gameTextures.textures[ "tree.png" ] );
 		tree.bottom.anchor.set( 0.5, 0 );
 		tree.bottom.x = 0;
-		tree.bottom.y = g.app.screen.height / 2 + 150;
 		tree.container.addChild( tree.bottom );
 
 		game.container.addChild( tree.container );
@@ -333,7 +332,7 @@
 	}
 
 	function setTreeHeight( tree ) {
-		const gap = 150;
+		const gap = 140;
 		const minY = gap;
 		const maxY = g.app.screen.height - gap * 2;
 		const height = Math.random() * ( maxY - minY ) + minY;
@@ -380,8 +379,10 @@
 	}
 
 	function restartGame() {
+		g.sounds.click.play();
 		setInitialTreePositions();
 		game.gameOver.playButton.off( "pointerdown" );
+		g.app.ticker.remove( run );
 		g.fade( game.gameOver.container, -1, function () {
 			startGame();
 		} );
@@ -396,7 +397,6 @@
 		} else {
 			game.tapButton.visible = false;
 		}
-		console.log( "Start Game" );
 		game.container.visible = true;
 		game.gameOver.playButton.off( "pointerdown" );
 		g.fade( game.container, 1, function () {
@@ -405,6 +405,7 @@
 			game.flatchy.container.y = g.app.screen.height / 2;
 			game.flatchy.container.rotation = 0;
 			game.flatchy.sprite.visible = true;
+			game.flatchy.sprite.gotoAndPlay( 0 );
 			game.flatchy.deadSprite.visible = false;
 			game.flatchy.isDead = false;
 			game.flatchy.isInGap = false;
@@ -428,7 +429,7 @@
 		if( game.flatchy.isDead ) {
 			return;
 		}
-		console.log( "Flatch" );
+		g.sounds.gases[ Math.floor( Math.random() * g.sounds.gases.length ) ].play();
 		game.flatchy.velocity = -game.flatchy.maxVelocity;
 		game.flatchy.container.rotation = -Math.PI / 12;
 
@@ -603,6 +604,10 @@
 
 	function killFlatchy() {
 		if( !game.flatchy.isDead ) {
+			g.sounds.thud1.play();
+			setTimeout( function () {
+				g.sounds.hit.play();
+			}, 100 );
 			showFeathers( 30, true );
 			game.speed = 0;
 			document.querySelector( "canvas" ).removeEventListener( "pointerdown", pointerDown );
@@ -622,21 +627,24 @@
 		game.gameOver.medals[ 2 ].visible = false;
 		if( game.score > g.bestScore ) {
 			g.bestScore = game.score;
+			localStorage.setItem( "bestScore", g.bestScore );
 			game.gameOver.newIcon.visible = true;
+			game.gameOver.bestScoreText.text = g.bestScore;
 		}
-		if( game.score >= 10 ) {
+		if( game.score >= 10 && game.score < 20 ) {
 			game.gameOver.medals[ 0 ].visible = true;
 		}
-		if( game.score >= 20 ) {
+		if( game.score >= 20 && game.score < 30 ) {
 			game.gameOver.medals[ 1 ].visible = true;
 		}
 		if( game.score >= 30 ) {
 			game.gameOver.medals[ 2 ].visible = true;
 		}
-		g.fade( game.gameOver.container, 1, function () {
-			g.app.ticker.remove( run );
-			game.gameOver.playButton.on( "pointerdown", restartGame );
-		}, 0.025 );
+		if( game.score >= 10 ) {
+			g.sounds.medal.play();
+		}
+		game.gameOver.playButton.on( "pointerdown", restartGame );
+		g.fade( game.gameOver.container, 1, function () {}, 0.025 );
 	}
 
 	function moveFeathers( delta ) {
@@ -695,6 +703,7 @@
 				flatchyBounds.x + flatchyBounds.width > boundsCheck.x
 			) {
 				if( game.flatchy.isInGap === false ) {
+					g.sounds.point.play();
 					game.score++;
 					game.scoreText.text = game.score;
 				}

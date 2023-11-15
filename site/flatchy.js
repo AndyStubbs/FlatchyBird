@@ -14,7 +14,7 @@ const g = {
 	"gameTextures": null,
 	"titleTextures": null,
 	"app": null,
-	"bestScore": 12
+	"bestScore": 0
 };
 
 ( function () {
@@ -87,6 +87,12 @@ const g = {
 	// Initialize the game components
 	function init() {
 
+		// Load the best score
+		const bestScore = localStorage.getItem( "bestScore" );
+		if( bestScore ) {
+			g.bestScore = parseInt( bestScore );
+		}
+
 		// Load the assets
 		loadAssets();
 
@@ -103,8 +109,9 @@ const g = {
 
 	// Resize the game to fit the window while maintaining the aspect ratio
 	function resize() {
-		const ratio1 = window.innerWidth / g.width;
-		const ratio2 = window.innerHeight / g.height;
+		g.app.renderer.resize( g.width, g.height );
+		const ratio1 = document.body.clientWidth / g.width;
+		const ratio2 = document.body.clientHeight / g.height;
 		const newWidth = Math.floor( g.width * Math.min( ratio1, ratio2 ) );
 		const newHeight = Math.floor( g.height * Math.min( ratio1, ratio2 ) );
 		const canvas = document.querySelector( "canvas" );
@@ -188,10 +195,41 @@ const g = {
 	}
 
 	function startGame() {
+		initSounds();
 		flatchy.startButton.off( "pointerdown" );
 		g.app.ticker.remove( animateTitle );
 		g.fade( flatchy.container, -1, () => {
 			g.startGame( true );
+		} );
+	}
+
+	function initSounds() {
+		g.sounds = {
+			"click": loadSound( "assets/audio/click.wav", 0.35 ),
+			"hit": loadSound( "assets/audio/hit.wav", 0.35 ),
+			"medal": loadSound( "assets/audio/medal.wav", 0.35 ),
+			"point": loadSound( "assets/audio/point.wav", 0.35 ),
+			"rollover": loadSound( "assets/audio/rollover.wav", 0.35 ),
+			"thud1": loadSound( "assets/audio/thud1.wav", 0.35 ),
+			"woosh": loadSound( "assets/audio/woosh.wav", 0.35 ),
+			"gases": [
+				loadSound( "assets/audio/gas1.wav", 0.15 ),
+				loadSound( "assets/audio/gas3.wav", 0.15 ),
+				loadSound( "assets/audio/gas4.wav", 0.15 ),
+				loadSound( "assets/audio/gas7.wav", 0.15 ),
+				loadSound( "assets/audio/gas14.wav", 0.15 ),
+				loadSound( "assets/audio/gas15.wav", 0.15 ),
+				loadSound( "assets/audio/gas18.wav", 0.15 ),
+				loadSound( "assets/audio/gas19.wav", 0.15 ),
+				loadSound( "assets/audio/gas29.wav", 0.15 ),
+				loadSound( "assets/audio/gas30.wav", 0.15 )
+			]
+		};
+	}
+
+	function loadSound( src, volume ) {
+		return new Howl( {
+			"src": [ src ], "autoplay": false, "loop": false, "volume": volume
 		} );
 	}
 
