@@ -577,6 +577,13 @@
 
 		flatchy.velocity += game.gravity * delta;
 		flatchy.container.y += flatchy.velocity * delta;
+
+		// Make sure flatchy doesn't fly too high
+		if( flatchy.container.y < -flatchy.container.height / 2 ) {
+			flatchy.container.y = -flatchy.container.height / 2;
+			flatchy.velocity = 0;
+		}
+
 		if( flatchy.velocity > 0 ) {
 			flatchy.container.rotation += 0.05 * delta;
 			if( flatchy.container.rotation > Math.PI / 2 ) {
@@ -673,10 +680,12 @@
 		];
 		for( let i = 0; i < treeBounds.length; i++ ) {
 			const boundsCheck = getBoundsCheck( treeBounds[ i ] );
-			if( flatchyBounds.x < boundsCheck.x + boundsCheck.width &&
+			if(
+				flatchyBounds.x < boundsCheck.x + boundsCheck.width &&
 				flatchyBounds.x + flatchyBounds.width > boundsCheck.x &&
 				flatchyBounds.y < boundsCheck.y + boundsCheck.height &&
-				flatchyBounds.height + flatchyBounds.y > boundsCheck.y ) {
+				flatchyBounds.height + flatchyBounds.y > boundsCheck.y
+			) {
 				return true;
 			}
 		}
